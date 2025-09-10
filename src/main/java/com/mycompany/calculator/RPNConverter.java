@@ -5,15 +5,19 @@ import java.util.HashMap;
 
 public class RPNConverter {
 
-    private static int getPrecedence(String operator) {
-        HashMap<String, Integer> operators = new HashMap<String, Integer>();
-        operators.put("^", 5);
-        operators.put("/", 4);
-        operators.put("*", 3);
-        operators.put("+", 2);
-        operators.put("-", 1);
+    private static final HashMap<String, Integer> OPERATORS = new HashMap<String, Integer>();
+    static {
+        OPERATORS.put("(", 0);
+        OPERATORS.put(")", 0);
+        OPERATORS.put("^", 3);
+        OPERATORS.put("/", 2);
+        OPERATORS.put("*", 2);
+        OPERATORS.put("+", 1);
+        OPERATORS.put("-", 1);
+    }
 
-        return operators.get(operator);
+    private static int getPrecedence(String operator) {
+        return OPERATORS.get(operator);
     }
 
     private static boolean isNumeric(String strNum) {
@@ -58,7 +62,7 @@ public class RPNConverter {
 
             } else {
                 // if operator is higher in bidmas than the one at the top of the operator stack, add it, if not pop the higher one onto the RPL list
-                while (!operatorStack.isEmpty() && getPrecedence(item) <= getPrecedence(operatorStack.getLast())) {
+                while (!operatorStack.isEmpty() && (getPrecedence(item) <= getPrecedence(operatorStack.getLast()))) {
                     reversePolishStack.add(operatorStack.removeLast());
                 }
 
