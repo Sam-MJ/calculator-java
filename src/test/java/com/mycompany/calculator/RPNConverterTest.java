@@ -63,6 +63,21 @@ public class RPNConverterTest {
     }
 
     @Test
+    public void multiplierPrecedenceBracketsTest(){
+        ArrayList<String> testData = new ArrayList<String>(
+            Arrays.asList("2", "*", "(", "3", "*", "(", "4", "+", "3", ")", ")", "=")
+        );
+
+        ArrayList<String> expected = new ArrayList<String>(
+            Arrays.asList("2", "3", "4", "3", "+", "*", "*")
+        );
+
+        ArrayList<String> result = RPNConverter.shuntingYard(testData);
+
+        assertEquals(result, expected);
+    }
+
+    @Test
     public void nestedBracketsTest(){
         ArrayList<String> testData = new ArrayList<String>(
             Arrays.asList("(", "(", "2", "+", "3", ")", "*", "(", "4", "-", "(", "1", "+", "1", ")", ")", ")", "^", "2", "=")
