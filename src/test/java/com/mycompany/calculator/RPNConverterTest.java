@@ -14,7 +14,7 @@ public class RPNConverterTest {
 
         ArrayList<String> result = RPNConverter.shuntingYard(testData);
 
-        assertEquals(result, expected);
+        assertEquals(expected, result);
     }
 
     @Test
@@ -25,7 +25,7 @@ public class RPNConverterTest {
 
         ArrayList<String> result = RPNConverter.shuntingYard(testData);
 
-        assertEquals(result, expected);
+        assertEquals(expected, result);
     }
 
     @Test
@@ -35,7 +35,7 @@ public class RPNConverterTest {
 
         ArrayList<String> result = RPNConverter.shuntingYard(testData);
 
-        assertEquals(result, expected);
+        assertEquals(expected, result);
     }
 
     @Test
@@ -49,7 +49,7 @@ public class RPNConverterTest {
 
         ArrayList<String> result = RPNConverter.shuntingYard(testData);
 
-        assertEquals(result, expected);
+        assertEquals(expected, result);
     }
 
     @Test
@@ -59,7 +59,7 @@ public class RPNConverterTest {
 
         ArrayList<String> result = RPNConverter.shuntingYard(testData);
 
-        assertEquals(result, expected);
+        assertEquals(expected, result);
     }
 
     @Test
@@ -74,7 +74,7 @@ public class RPNConverterTest {
 
         ArrayList<String> result = RPNConverter.shuntingYard(testData);
 
-        assertEquals(result, expected);
+        assertEquals(expected, result);
     }
 
     @Test
@@ -89,6 +89,6 @@ public class RPNConverterTest {
 
         ArrayList<String> result = RPNConverter.shuntingYard(testData);
 
-        assertEquals(result, expected);
+        assertEquals(expected, result);
     }
 }

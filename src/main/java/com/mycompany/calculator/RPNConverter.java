@@ -36,7 +36,7 @@ public class RPNConverter {
         /*
             Convert from inline prefix to reverse polish notation
         */
-        ArrayList<String> reversePolishStack = new ArrayList<String>();
+        ArrayList<String> reversePolishQueue = new ArrayList<String>();
         ArrayList<String> operatorStack = new ArrayList<String>();
 
         // pop equals off
@@ -44,7 +44,7 @@ public class RPNConverter {
 
         for (String item : inputList) {
             if (isNumeric(item)){
-                reversePolishStack.add(item);
+                reversePolishQueue.add(item);
 
             } else if (item.contentEquals("(")) {
                 operatorStack.add(item);
@@ -52,7 +52,7 @@ public class RPNConverter {
             } else if (item.contentEquals(")")) {
 
                 while (!operatorStack.isEmpty() && !operatorStack.getLast().contentEquals("(")) {
-                    reversePolishStack.add(operatorStack.removeLast());
+                    reversePolishQueue.add(operatorStack.removeLast());
                 }
 
                 //Remove the open bracket
@@ -63,7 +63,7 @@ public class RPNConverter {
             } else {
                 // if operator is higher in bidmas than the one at the top of the operator stack, add it, if not pop the higher one onto the RPL list
                 while (!operatorStack.isEmpty() && (getPrecedence(item) <= getPrecedence(operatorStack.getLast()))) {
-                    reversePolishStack.add(operatorStack.removeLast());
+                    reversePolishQueue.add(operatorStack.removeLast());
                 }
 
                 operatorStack.add(item);
@@ -71,9 +71,9 @@ public class RPNConverter {
         }
 
         while (!operatorStack.isEmpty()) {
-            reversePolishStack.add(operatorStack.removeLast());
+            reversePolishQueue.add(operatorStack.removeLast());
         }
 
-        return reversePolishStack;
+        return reversePolishQueue;
     }
 }
