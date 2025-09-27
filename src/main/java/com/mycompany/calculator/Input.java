@@ -6,7 +6,20 @@ import java.util.Scanner;
 
 public class Input {
 
-    public static ArrayList<String> getInput(){
+    public static ArrayList<String> getInput(String[] args){
+
+        ArrayList<String> inputs;
+
+        if (args.length == 0){
+            inputs = Input.scan();
+        } else {
+            inputs = ExpressionParser.parse(args[0]);
+        }
+
+        return inputs;
+    }
+
+    private static ArrayList<String> scan(){
 
         ArrayList<String> inputList = new ArrayList<String>();
         String token = "";
@@ -29,11 +42,6 @@ public class Input {
 
         scanner.close();
         return inputList;
-    }
-
-    public static ArrayList<String> parseInput(String input){
-        ArrayList<String> result = ExpressionParser.parse(input);
-        return result;
     }
 
 }

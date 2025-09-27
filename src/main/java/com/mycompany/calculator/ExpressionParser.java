@@ -1,6 +1,5 @@
 package com.mycompany.calculator;
 import java.util.ArrayList;
-import java.util.regex.Pattern;
 
 public class ExpressionParser {
 
