@@ -1,9 +1,14 @@
 package com.mycompany.calculator;
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 public class ExpressionParser {
 
     public static ArrayList<String> parse(String input){
+
+        if (!input.endsWith("=")) {
+            throw new ArithmeticException("Expressions must end with =");
+        }
 
         ArrayList<String> result = new ArrayList<String>();
         String buffer = "";
@@ -13,7 +18,7 @@ public class ExpressionParser {
             if (Character.isDigit(item)){
                 buffer += item;
 
-            } else {
+            } else if(Operators.OPERATOR_SET.contains(item) || item == '=') {
 
                 if (!buffer.isEmpty()){
                     result.add(buffer);
@@ -21,6 +26,9 @@ public class ExpressionParser {
                 }
 
                 result.add(Character.toString(item));
+
+            } else {
+                throw new ArithmeticException("Expression can only only contain digits or mathematical operators");
             }
         }
 

@@ -1,23 +1,11 @@
 package com.mycompany.calculator;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class RPNConverter {
 
-    private static final HashMap<String, Integer> OPERATORS = new HashMap<String, Integer>();
-    static {
-        OPERATORS.put("(", 0);
-        OPERATORS.put(")", 0);
-        OPERATORS.put("^", 3);
-        OPERATORS.put("/", 2);
-        OPERATORS.put("*", 2);
-        OPERATORS.put("+", 1);
-        OPERATORS.put("-", 1);
-    }
-
     private static int getPrecedence(String operator) {
-        return OPERATORS.get(operator);
+        return Operators.OPERATOR_MAP.get(operator);
     }
 
     private static boolean isNumeric(String strNum) {

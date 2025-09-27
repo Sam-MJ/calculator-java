@@ -3,11 +3,8 @@ package com.mycompany.calculator;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-import java.util.regex.Pattern;
 
 public class Input {
-
-    private static Pattern operatorPattern = Pattern.compile("\\d+|[*\\-+/=\\(\\)\\^]");
 
     public static ArrayList<String> getInput(){
 
@@ -19,12 +16,12 @@ public class Input {
         while (!token.contains("=")) {
 
             try {
-                token = scanner.next(operatorPattern);
+                token = scanner.next(Operators.OPERATOR_PATTERN);
                 inputList.add(token);
                 System.out.println(String.join( " ",inputList));
 
             } catch (InputMismatchException e) {
-                System.out.println("You can only input digits or mathmatical operators");
+                System.out.println("You can only input digits or mathematical operators");
                 scanner.next();
             }
 
