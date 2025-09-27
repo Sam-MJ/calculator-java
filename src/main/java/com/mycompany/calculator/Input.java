@@ -34,4 +34,9 @@ public class Input {
         return inputList;
     }
 
+    public static ArrayList<String> parseInput(String input){
+        ArrayList<String> result = ExpressionParser.parse(input);
+        return result;
+    }
+
 }
