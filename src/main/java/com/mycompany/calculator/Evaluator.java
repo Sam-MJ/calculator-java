@@ -3,16 +3,16 @@ import java.util.ArrayList;
 
 public class Evaluator {
 
-    private static String operators = "[\\*\\/\\-\\+\\^]";
+    private static String operators = "[\\*x\\/\\÷\\-\\+\\^]";
 
     private static Double getOperationResult(String operation, Double num1, Double num2){
         if (operation.equals("^")){
             return Operations.power(num1, num2);
 
-        } else if (operation.equals("*")) {
+        } else if (operation.equals("*") || operation.equals("x")) {
             return Operations.multiply(num1, num2);
 
-        } else if (operation.equals("/")) {
+        } else if (operation.equals("/") || operation.equals("÷")) {
             return Operations.divide(num1, num2);
 
         } else if (operation.equals("+")) {

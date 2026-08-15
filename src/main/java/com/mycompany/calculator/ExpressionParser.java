@@ -27,7 +27,7 @@ public class ExpressionParser {
                 result.add(Character.toString(item));
 
             } else {
-                throw new ArithmeticException("Expression can only only contain digits or mathematical operators");
+                throw new ArithmeticException(String.format("Expression can only only contain digits or mathematical operators and not: %s", item));
             }
         }
 
